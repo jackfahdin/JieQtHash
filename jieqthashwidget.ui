@@ -13,7 +13,13 @@
   <property name="windowTitle">
    <string>JieQtHashWidget</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/new/prefix1/Images/ICON/JieQtHashIcon.png</normaloff>:/new/prefix1/Images/ICON/JieQtHashIcon.png</iconset>
+  </property>
  </widget>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>
