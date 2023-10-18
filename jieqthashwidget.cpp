@@ -14,7 +14,8 @@ JieQtHashWidget::JieQtHashWidget(QWidget *parent)
 
     fileHashThread = new FileHashThread();
     connect(fileHashThread, SIGNAL(hashStarted(int)), this, SLOT(resetProgressBar(int)));
-    connect(fileHashThread, SIGNAL(hashResult(QString)), this, SLOT(addMessage(QString)));
+    //connect(fileHashThread, SIGNAL(hashResult(QString)), this, SLOT(addMessage(QString)));
+    connect(fileHashThread, SIGNAL(hashResultList(QStringList)), this, SLOT(filterListMessage(QStringList)));
     connect(fileHashThread, SIGNAL(hashError(QString)), this, SLOT(addMessage(QString)));
     connect(fileHashThread, SIGNAL(hashProgressChanged(int)), this, SLOT(currentChange(int)));
     connect(fileHashThread, SIGNAL(hashIndexChanged(int)), this, SLOT(totalChange(int)));
@@ -88,6 +89,26 @@ void JieQtHashWidget::addMessage(QString message)
     ui->pushButtonSlave->setEnabled(true);
 
     ui->plainTextEditMessage->appendPlainText(message);
+}
+
+void JieQtHashWidget::filterListMessage(QStringList listMessage)
+{
+    QString messsge;
+    messsge = QString("文件: %1\n").arg(listMessage.at(0));
+
+    // 文件日期
+    if(ui->checkBoxDate->isChecked())
+        messsge += QString("日期: %1\n").arg(listMessage.at(1));
+    if(ui->checkBoxSize->isChecked())
+        messsge += QString("大小: %1字节\n").arg(listMessage.at(2));
+    if(ui->checkBoxMD5->isChecked())
+        messsge += QString("MD5: %1\n").arg(listMessage.at(4));
+    if(ui->checkBoxDate->isChecked())
+        messsge += QString("SHA1: %1\n").arg(listMessage.at(5));
+
+    if(!messsge.isEmpty())
+        addMessage(messsge);
+
 }
 
 void JieQtHashWidget::currentChange(int progress)

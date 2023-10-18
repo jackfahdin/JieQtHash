@@ -58,6 +58,7 @@ signals:
     void hashIndexChanged(int index);
     // 哈希校验结果
     void hashResult(QString result);
+    void hashResultList(QStringList listMessage);
 };
 
 #endif // FILEHASHTHREAD_H

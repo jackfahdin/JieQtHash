@@ -110,15 +110,27 @@ void FileHashThread::hash(QString filePath, int index) {
         // 格式化校验结果
         QString message = "文件: %1\n"
                           "大小: %2字节\n"
+                          "日期：%8\n"
                           "MD4: %3\n"
                           "MD5: %4\n"
                           "SHA1: %5\n"
                           "SHA256: %6\n"
                           "SHA512: %7\n"
-                          "日期：%8\n";
+                          ;
         QString result = message.arg(filePath, QString::number(fileSize), _md4, _md5, _sha1, _sha256, _sha512, info.lastModified().toString("yyyy-MM-dd hh:mm:ss"));
 
+        QStringList listMessage;
+        listMessage << filePath
+                    << info.lastModified().toString("yyyy-MM-dd hh:mm:ss")
+                    << QString::number(fileSize)
+                    << _md4
+                    << _md5
+                    << _sha1
+                    << _sha256
+                    << _sha512;
+
         emit hashResult(result);
+        emit hashResultList(listMessage);
         emit hashIndexChanged(index + 1);
     }
 

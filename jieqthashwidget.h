@@ -31,6 +31,7 @@ private slots:
     void resetProgressBar(int count);
     // 添加信息
     void addMessage(QString message);
+    void filterListMessage(QStringList listmessage);
     // 当前进度改变
     void currentChange(int progress);
     // 总进度改变

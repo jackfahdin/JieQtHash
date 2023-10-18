@@ -175,12 +175,28 @@
         <property name="text">
          <string>版本</string>
         </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
        <widget class="QCheckBox" name="checkBoxDate">
         <property name="text">
          <string>日期</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBoxSize">
+        <property name="text">
+         <string>大小</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -189,6 +205,9 @@
         <property name="text">
          <string>MD5</string>
         </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -196,12 +215,18 @@
         <property name="text">
          <string>SHA1</string>
         </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
        <widget class="QCheckBox" name="checkBoxCRC">
         <property name="text">
          <string>CRC32</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
