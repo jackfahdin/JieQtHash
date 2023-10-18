@@ -20,6 +20,8 @@ set(PROJECT_SOURCES
         jieqthashwidget.h
         jieqthashwidget.ui
         ${TS_FILES}
+        filehashthread.cpp
+        filehashthread.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
