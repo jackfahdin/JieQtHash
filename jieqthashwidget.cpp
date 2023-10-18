@@ -129,6 +129,9 @@ void JieQtHashWidget::on_pushButtonClear_clicked()
     ui->pushButtonClear->setEnabled(false);
     ui->pushButtonCopy->setEnabled(false);
     ui->pushButtonSlave->setEnabled(false);
+    // 清除message内容时重置进度条
+    ui->progressBarFile->setValue(0);
+    ui->progressBarTotal->setValue(0);
 
     ui->plainTextEditMessage->clear();
 }
