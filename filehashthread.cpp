@@ -2,6 +2,7 @@
 
 #include <QFile>
 #include <QFileInfo>
+#include <QDebug>
 
 FileHashThread::FileHashThread()
 {
@@ -37,6 +38,7 @@ void FileHashThread::setStop(bool isStop)
 void FileHashThread::run()
 {
     int size = fileList.size();
+    qDebug() << "size = " << size;
 
     if (size > 0)
     {
@@ -112,8 +114,9 @@ void FileHashThread::hash(QString filePath, int index) {
                           "MD5: %4\n"
                           "SHA1: %5\n"
                           "SHA256: %6\n"
-                          "SHA512: %7\n";
-        QString result = message.arg(filePath, QString::number(fileSize), _md4, _md5, _sha1, _sha256, _sha512);
+                          "SHA512: %7\n"
+                          "日期：%8\n";
+        QString result = message.arg(filePath, QString::number(fileSize), _md4, _md5, _sha1, _sha256, _sha512, info.lastModified().toString("yyyy-MM-dd hh:mm:ss"));
 
         emit hashResult(result);
         emit hashIndexChanged(index + 1);
