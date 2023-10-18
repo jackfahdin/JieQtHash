@@ -18,8 +18,11 @@ int main(int argc, char *argv[])
         }
     }
     JieQtHashWidget w;
-    w.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint);
+    // 删除最大化与最小化
+    // w.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint);
     w.setWindowTitle("文件校验");
+    // 设置窗口标志，使其保持在顶部
+    w.setWindowFlags(Qt::WindowStaysOnTopHint);
     w.show();
     return a.exec();
 }
