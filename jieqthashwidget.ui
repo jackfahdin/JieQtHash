@@ -28,6 +28,9 @@
     <height>530</height>
    </size>
   </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>JieQtHashWidget</string>
   </property>
@@ -43,6 +46,9 @@
      <width>781</width>
      <height>341</height>
     </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">
