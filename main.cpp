@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
         }
     }
     JieQtHashWidget w;
+    w.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint);
     w.show();
     return a.exec();
 }
