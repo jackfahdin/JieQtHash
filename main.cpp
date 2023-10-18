@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     }
     JieQtHashWidget w;
     w.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint);
+    w.setWindowTitle("文件校验");
     w.show();
     return a.exec();
 }
