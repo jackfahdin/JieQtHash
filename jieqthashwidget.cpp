@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QClipboard>
 #include <QMimeData>
+#include <QDateTime>
 
 JieQtHashWidget::JieQtHashWidget(QWidget *parent)
     : QWidget(parent)
@@ -169,7 +170,10 @@ void JieQtHashWidget::on_pushButtonCopy_clicked()
 
 void JieQtHashWidget::on_pushButtonSlave_clicked()
 {
-    QString path = QFileDialog::getSaveFileName(this, NULL, "hash.txt", "文本文件(*.txt);;所有文件(*.*)");
+    QString path = QFileDialog::getSaveFileName(this, NULL, "JieQtHash_" +
+                                                QDateTime::currentDateTime()
+                                                .toString("yyyyMMdd_hhmmss") + ".txt",
+                                                "文本文件(*.txt);;所有文件(*.*)");
     if (path.isEmpty())
         return;
 
