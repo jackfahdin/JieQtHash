@@ -103,8 +103,10 @@ void JieQtHashWidget::filterListMessage(QStringList listMessage)
         messsge += QString("大小: %1字节\n").arg(listMessage.at(2));
     if(ui->checkBoxMD5->isChecked())
         messsge += QString("MD5: %1\n").arg(listMessage.at(4));
-    if(ui->checkBoxDate->isChecked())
+    if(ui->checkBoxSHA->isChecked())
         messsge += QString("SHA1: %1\n").arg(listMessage.at(5));
+    if(ui->checkBoxSHA256->isChecked())
+        messsge += QString("SHA256: %1\n").arg(listMessage.at(6));
 
     if(!messsge.isEmpty())
         addMessage(messsge);

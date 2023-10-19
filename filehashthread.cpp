@@ -120,14 +120,14 @@ void FileHashThread::hash(QString filePath, int index) {
         QString result = message.arg(filePath, QString::number(fileSize), _md4, _md5, _sha1, _sha256, _sha512, info.lastModified().toString("yyyy-MM-dd hh:mm:ss"));
 
         QStringList listMessage;
-        listMessage << filePath
-                    << info.lastModified().toString("yyyy-MM-dd hh:mm:ss")
-                    << QString::number(fileSize)
-                    << _md4
-                    << _md5
-                    << _sha1
-                    << _sha256
-                    << _sha512;
+        listMessage << filePath //0
+                    << info.lastModified().toString("yyyy-MM-dd hh:mm:ss") // 1
+                    << QString::number(fileSize)  //2
+                    << _md4  //3
+                    << _md5  //4
+                    << _sha1  //5
+                    << _sha256  //6
+                    << _sha512;  //7
 
         emit hashResult(result);
         emit hashResultList(listMessage);

@@ -171,16 +171,6 @@
        <number>20</number>
       </property>
       <item>
-       <widget class="QCheckBox" name="checkBoxVersion">
-        <property name="text">
-         <string>版本</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QCheckBox" name="checkBoxDate">
         <property name="text">
          <string>日期</string>
@@ -221,9 +211,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="checkBoxCRC">
+       <widget class="QCheckBox" name="checkBoxSHA256">
         <property name="text">
-         <string>CRC32</string>
+         <string>SHA256</string>
         </property>
         <property name="checked">
          <bool>true</bool>
