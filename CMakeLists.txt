@@ -14,6 +14,29 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
 set(TS_FILES JieQtHash_zh_CN.ts)
 
+set(CRC_SOURCES
+        CRC/CRC.cpp
+        CRC/CRC.h
+        CRC/CRC12.cpp
+        CRC/CRC12.h
+        CRC/CRC16.cpp
+        CRC/CRC16.h
+        CRC/CRC32.cpp
+        CRC/CRC32.h
+        CRC/CRC64.cpp
+        CRC/CRC64.h
+        CRC/CRC8.cpp
+        CRC/CRC8.h
+        CRC/CrcDefines.h
+        CRC/CrcFastReverse.cpp
+        CRC/CrcFastReverse.h
+        CRC/CrcParameters.h
+)
+
+## CRC算法
+#aux_source_directory(${PROJECT_SOURCE_DIR}/CRC CRC_FILES)
+#include_directories("${PROJECT_SOURCE_DIR}/CRC")
+
 set(PROJECT_SOURCES
         main.cpp
         jieqthashwidget.cpp
@@ -22,6 +45,7 @@ set(PROJECT_SOURCES
         ${TS_FILES}
         filehashthread.cpp
         filehashthread.h
+        ${CRC_SOURCES}
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
