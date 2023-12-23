@@ -1,4 +1,5 @@
 #include "filehashthread.h"
+#include "CRC/crclib.h"
 
 #include <QFile>
 #include <QFileInfo>
@@ -14,6 +15,7 @@ FileHashThread::FileHashThread()
     sha1 = new QCryptographicHash(QCryptographicHash::Sha1);
     sha256 = new QCryptographicHash(QCryptographicHash::Sha256);
     sha512 = new QCryptographicHash(QCryptographicHash::Sha512);
+    crc32 = new CRC32Calculator;
 }
 
 FileHashThread::~FileHashThread()
@@ -23,6 +25,7 @@ FileHashThread::~FileHashThread()
     delete sha1;
     delete sha256;
     delete sha512;
+    delete crc32;
 }
 
 void FileHashThread::setFileList(QStringList fileList)
@@ -38,7 +41,6 @@ void FileHashThread::setStop(bool isStop)
 void FileHashThread::run()
 {
     int size = fileList.size();
-    qDebug() << "size = " << size;
 
     if (size > 0)
     {
@@ -87,6 +89,7 @@ void FileHashThread::hash(QString filePath, int index) {
             sha1->addData(byteArray);
             sha256->addData(byteArray);
             sha512->addData(byteArray);
+            crc32->addData(byteArray);
 
             size += byteArray.size();
             emit hashProgressChanged(static_cast<double>(size) / fileSize * 100);
@@ -106,6 +109,7 @@ void FileHashThread::hash(QString filePath, int index) {
         QString _sha1 = sha1->result().toHex().toUpper();
         QString _sha256 = sha256->result().toHex().toUpper();
         QString _sha512 = sha512->result().toHex().toUpper();
+        QString _crc32 = QString::number(crc32->getResult(), 16).toUpper();
 
         // 格式化校验结果
         QString message = "文件: %1\n"
@@ -127,7 +131,8 @@ void FileHashThread::hash(QString filePath, int index) {
                     << _md5  //4
                     << _sha1  //5
                     << _sha256  //6
-                    << _sha512;  //7
+                    << _sha512  //7
+                    << _crc32; //8
 
         emit hashResult(result);
         emit hashResultList(listMessage);

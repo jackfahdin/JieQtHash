@@ -108,6 +108,8 @@ void JieQtHashWidget::filterListMessage(QStringList listMessage)
         messsge += QString("SHA1: %1\n").arg(listMessage.at(5));
     if(ui->checkBoxSHA256->isChecked())
         messsge += QString("SHA256: %1\n").arg(listMessage.at(6));
+    if(ui->checkBoxCRC32->isChecked())
+        messsge += QString("CRC32: %1\n").arg(listMessage.at(8));
 
     if(!messsge.isEmpty())
         addMessage(messsge);

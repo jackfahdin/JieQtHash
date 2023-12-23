@@ -3,6 +3,7 @@
 
 #include <QThread>
 #include <QCryptographicHash>
+#include "CRC/crclib.h"
 
 class FileHashThread : public QThread
 {
@@ -44,6 +45,7 @@ private:
     QCryptographicHash* sha1;
     QCryptographicHash* sha256;
     QCryptographicHash* sha512;
+    CRC32Calculator* crc32;
 
 signals:
     // 哈希校验开始
