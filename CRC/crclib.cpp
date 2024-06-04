@@ -23,3 +23,8 @@ uint32_t CRC32Calculator::getResult() const
 {
     return ~crc;
 }
+
+void CRC32Calculator::reset()
+{
+    crc = 0xFFFFFFFF;
+}

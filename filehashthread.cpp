@@ -145,6 +145,7 @@ void FileHashThread::hash(QString filePath, int index) {
     sha1->reset();
     sha256->reset();
     sha512->reset();
+    crc32->reset();
 }
 
 void FileHashThread::emitError(int index, QString error)

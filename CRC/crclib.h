@@ -9,6 +9,7 @@ public:
     CRC32Calculator();
     void addData(const QByteArray& data);
     uint32_t getResult() const;
+    void reset();
 
 private:
     uint32_t crc;
